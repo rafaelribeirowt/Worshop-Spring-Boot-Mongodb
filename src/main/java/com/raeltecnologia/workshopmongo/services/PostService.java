@@ -1,5 +1,6 @@
 package com.raeltecnologia.workshopmongo.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,4 +30,8 @@ public class PostService {
 		
 	}
 	
-}
+	public List<Post> fullSearch (String text, Date minDate, Date maxDate){
+	maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000);
+	return repo.fullSearch(text, minDate, maxDate);
+	
+}}
